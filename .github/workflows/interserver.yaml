@@ -26,4 +26,5 @@ jobs:
         username: ${{secrets.SSH_USER}}
         password: ${{secrets.SSH_PASSWORD}}
         port: 22
-        source: ${{GITHUB_WORKSPACE}}
+        overwrite: true
+        source: "Ci-Cd-Demo/index.html,favicon.ico,*.js"
