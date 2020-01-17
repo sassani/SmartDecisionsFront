@@ -26,8 +26,8 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
-        FTP_SERVER: ${{secrets.SSH_HOST}}
-        FTP_USERNAME: ${{secrets.SSH_USER}}
-        FTP_PASSWORD: ${{secrets.SSH_PASSWORD}}
+        FTP_SERVER: ${{secrets.FTP_SERVER}}
+        FTP_USERNAME: ${{secrets.FTP_USERNAME}}
+        FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
         LOCAL_DIR: dist
-        ARGS: --delete
+        ARGS: --overwrite
