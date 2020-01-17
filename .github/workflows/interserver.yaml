@@ -19,3 +19,11 @@ jobs:
       run: |
         npm ci
         npm run build
+    - name: Deploy via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{secrets.SSH_HOST}}
+        username: ${{secrets.SSH_USER}}
+        password: ${{secrets.SSH_PASSWORD}}
+        port: 22
+        source: ${{GITHUB_WORKSPACE}}
