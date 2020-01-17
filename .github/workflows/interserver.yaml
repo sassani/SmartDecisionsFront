@@ -29,5 +29,5 @@ jobs:
         FTP_SERVER: ${{secrets.SSH_HOST}}
         FTP_USERNAME: ${{secrets.SSH_USER}}
         FTP_PASSWORD: ${{secrets.SSH_PASSWORD}}
-        LOCAL_DIR: build
+        LOCAL_DIR: dist
         ARGS: --delete
