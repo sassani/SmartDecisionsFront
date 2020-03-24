@@ -7,12 +7,16 @@ import { BehaviorSubject, of } from 'rxjs';
 import { Credential } from '../_models/credential';
 import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ErrorService } from './error.service';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class AuthService {
+    private readonly CLIENT_ID: string = environment.clientId;
     private credential = new Credential();
     private _subject = new BehaviorSubject<Credential>(this.credential);
     private rememberMe: boolean = false;
@@ -22,12 +26,13 @@ export class AuthService {
     constructor(
         private apiService: ApiService,
         private tokenService: TokenService,
-        private router: Router
+        private router: Router,
+        private errorService: ErrorService
     ) { }
 
     public authWithCredential(crDto: ICredentialDto, rememberMe: boolean) {
         crDto.RequestType = RequestTypes.ID_TOKEN;
-        crDto.ClientId = 'cuv12t7';
+        crDto.ClientId = this.CLIENT_ID;
         this.rememberMe = rememberMe;
         this.authenticate(crDto);
     }
@@ -86,15 +91,7 @@ export class AuthService {
                 this._subject.next(this.credential);
             },
             err => {
-                let errors: IError[] = [];
-                for (let e of err.error.errors) {
-                    let er: IError = {
-                        Code: e.code,
-                        Title: e.detail
-                    };
-                    errors.push(er);
-                }
-                this.credential.Errors = errors;
+                this.credential.Errors = this.errorService.getErrors(err);
                 this._subject.next(this.credential);
             })
     }
@@ -106,7 +103,7 @@ export class AuthService {
                 this._subject.next(new Credential());
             },
             err => {
-                // this._credential.error(err);
+                this.credential.Errors = this.errorService.getErrors(err);
             })
     }
 
