@@ -2,13 +2,13 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AuthService } from '../../_services/auth.service';
-import { ICredentialDto } from '../../_interfaces/DTOs/ICredentialDto';
+// import { ICredentialDto } from '../../_interfaces/DTOs/ICredentialDto';
 import { Credential } from 'src/app/_models/credential';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+    styleUrls: ['../../../styles/form.css']
 })
 export class LoginComponent implements OnInit {
     private cr: Credential;
@@ -41,17 +41,22 @@ export class LoginComponent implements OnInit {
     logIn() {
         this.isloading = true;
         this.cr.Errors.length = 0;
-        const crd: ICredentialDto = {
-            Email: this.formCredential.value.email,
-            Password: this.formCredential.value.password
-        }
-        this.authService.authWithCredential(crd, this.formCredential.value.rememberMe);
-
+        // const crd: ICredentialDto = {
+        //     Email: this.formCredential.value.email,
+        //     Password: this.formCredential.value.password
+        // }
+        // this.authService.authWithCredential(crd, this.formCredential.value.rememberMe);
+        this.authService.authWithCredentialPlain(
+            this.formCredential.value.email,
+            this.formCredential.value.password,
+            this.formCredential.value.rememberMe);
     }
+
     test(){
         // console.log('object', this.cr);
         this.authService.testSecure();
     }
+
     test1(){
         console.log('Current User', this.cr);
     }

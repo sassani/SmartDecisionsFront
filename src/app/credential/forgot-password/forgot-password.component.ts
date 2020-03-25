@@ -8,7 +8,7 @@ import { IError } from 'src/app/_interfaces/IError';
 @Component({
     selector: 'app-forgot-password',
     templateUrl: './forgot-password.component.html',
-    styleUrls: ['./forgot-password.component.css']
+    styleUrls: ['../../../styles/form.css']
 })
 export class ForgotPasswordComponent implements OnInit {
     private isLoading: boolean = false;

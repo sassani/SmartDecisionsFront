@@ -10,7 +10,7 @@ import { ErrorService } from 'src/app/_services/error.service';
 @Component({
     selector: 'app-change-password',
     templateUrl: './change-password.component.html',
-    styleUrls: ['./change-password.component.css']
+    styleUrls: ['../../../styles/form.css']
 })
 export class ChangePasswordComponent implements OnInit {
     private isLoading: boolean = false;
