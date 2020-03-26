@@ -44,15 +44,6 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.newPassword = new FormGroup({
-        //     'name': new FormControl(this.hero.name, [
-        //       Validators.required,
-        //       Validators.minLength(4),
-        //       forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
-        //     ]),
-        //     'alterEgo': new FormControl(this.hero.alterEgo),
-        //     'power': new FormControl(this.hero.power, Validators.required)
-        //   });
     }
 
     onSubmit() {
@@ -60,19 +51,16 @@ export class ChangePasswordComponent implements OnInit {
         this.errors.length = 0;
         const newPass = this.fGroup.value.newPassword;
         const conPass = this.fGroup.value.newPasswordConfirm;
-        console.log('fGroup', this.fGroup)
         if (conPass === newPass) {
             if (!!!this.token) {
                 const oldPass = this.fGroup.value.oldPassword;
                 this.credentilService.changePasswordAuthorized(newPass, oldPass).subscribe(
                     res => {
-                        console.log('res: ', res);
                         this.changedSuccessfully = true;
                         this.isLoading = false;
                     },
                     err => {
                         this.isLoading = false;
-                        console.log('err: ', err);
                         this.errors = this.errorService.getErrors(err);
                     }
                 )
@@ -80,14 +68,11 @@ export class ChangePasswordComponent implements OnInit {
             } else {
                 this.credentilService.changePasswordByToken(newPass, this.token).subscribe(
                     res => {
-                        console.log('res: ', res);
                         this.changedSuccessfully = true;
-
                         this.isLoading = false;
                     },
                     err => {
                         this.isLoading = false;
-                        console.log('err: ', err);
                         this.errors = this.errorService.getErrors(err);
                     }
                 )

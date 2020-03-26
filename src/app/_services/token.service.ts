@@ -14,22 +14,6 @@ export class TokenService {
     constructor() { }
 
 
-
-    // private storeRefreshTokenFixed(token: string) {
-    //     localStorage.setItem('refresh-token', JSON.stringify(token));
-    // }
-
-    // private storeAuthToken(authToken: IAuthToken) {
-    //     sessionStorage.setItem('refresh-token', authToken.refreshToken);
-    //     sessionStorage.setItem('access-token', authToken.accessToken);
-    //     // this.validateToken(authToken.accessToken);
-    // }
-
-    // public storeToken(authToken: IAuthToken, isFixed: boolean = false) {
-    //     this.storeAuthToken(authToken);
-    //     if (isFixed) this.storeRefreshTokenFixed(authToken.refreshToken);
-    // }
-
     public storeRefreshToken(token: string) {
         localStorage.setItem(this.REFRESH_TOKEN, token);
     }
@@ -40,7 +24,6 @@ export class TokenService {
 
     public validateToken(token:string):boolean{
         let obj = this.jwt.decodeToken(token);
-        // console.log('token', obj)
         return true;
     }
 
@@ -58,8 +41,6 @@ export class TokenService {
     }
 
     public clearTokens() {
-        // sessionStorage.removeItem('access-token');
-        // sessionStorage.removeItem('refresh-token');
         localStorage.removeItem(this.REFRESH_TOKEN);
     }
 }

@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './credential/forgot-password/forgot-pas
 import { RegisterComponent } from './credential/register/register.component';
 import { ChangePasswordComponent } from './credential/change-password/change-password.component';
 import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path:'credential/changepassword', component: ChangePasswordComponent},
     {path:'credential/emailverification/:token', component: EmailVerificationComponent},
     {path:'credential/emailverification', component: EmailVerificationComponent},
+    {path:'dashboard', component: DashboardComponent},
     {path:'', redirectTo:'/home',pathMatch: 'full'},
     {path:'**', component: ErrorPageNotfoundComponent}
 ];

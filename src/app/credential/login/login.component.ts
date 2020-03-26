@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 import { AuthService } from '../../_services/auth.service';
 // import { ICredentialDto } from '../../_interfaces/DTOs/ICredentialDto';
 import { Credential } from 'src/app/_models/credential';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -16,10 +17,14 @@ export class LoginComponent implements OnInit {
     private formCredential = this.fb.group({
         email: [null, Validators.required],
         password: [null, Validators.required],
-        rememberMe: [true]
+        rememberMe: [false]
     })
 
-    constructor(private fb: FormBuilder, private authService: AuthService) {
+    constructor(
+        private fb: FormBuilder,
+        private authService: AuthService,
+        private router: Router
+    ) {
         this.cr = new Credential()
     }
 
@@ -46,18 +51,16 @@ export class LoginComponent implements OnInit {
         //     Password: this.formCredential.value.password
         // }
         // this.authService.authWithCredential(crd, this.formCredential.value.rememberMe);
-        this.authService.authWithCredentialPlain(
+        this.authService.authWithCredential(
             this.formCredential.value.email,
             this.formCredential.value.password,
             this.formCredential.value.rememberMe);
     }
 
-    test(){
-        // console.log('object', this.cr);
+    test() {
         this.authService.testSecure();
     }
 
-    test1(){
-        console.log('Current User', this.cr);
+    test1() {
     }
 }

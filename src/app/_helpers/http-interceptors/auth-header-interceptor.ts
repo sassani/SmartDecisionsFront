@@ -5,6 +5,7 @@ import { throwError, Observable, BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../_services/auth.service';
 import { Credential } from '../../_models/credential';
 import { TokenService } from "../../_services/token.service";
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Injectable()
@@ -13,11 +14,17 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     private isRefreshing: boolean = false;
     private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-    constructor(private authService: AuthService, private tokenService: TokenService) {
+    constructor(
+        private authService: AuthService,
+        private tokenService: TokenService,
+        private route: ActivatedRoute,
+        private router: Router
+    ) {
         this.authService.credential$.subscribe(
             cr => { this.cr = cr }
         )
     }
+
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (this.cr.AccessToken) {
             req = this.addAuthorizationHeader(req, this.cr.AccessToken);
@@ -25,6 +32,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError(err => {
                 if (err instanceof HttpErrorResponse && err.status === 401) {
+                    localStorage.setItem('redirect-to', this.router.routerState.snapshot.url)// TODO: add suport for query params
                     return this.handle401Error(req, next);
                 } else {
                     throw err;
@@ -49,7 +57,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
             return this.authService.renewAccessToken().pipe(
                 switchMap((token: any) => {
                     this.isRefreshing = false;
-                    if(token){
+                    if (token) {
                         const accessToken = token['data'].authToken.accessToken;
                         this.refreshTokenSubject.next(accessToken);
                         return next.handle(this.addAuthorizationHeader(request, accessToken));

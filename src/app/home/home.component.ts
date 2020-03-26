@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
     }
     test(secure: boolean = false) {
-        // console.log('object', this.cr);
         if (secure) {
             this.authService.testSecure();
         } else {

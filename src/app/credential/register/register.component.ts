@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
             this.crService.register(email, pass).subscribe(
                 res => {
                     this.isloading = false;
-                    this.authService.authWithCredentialPlain(email, pass);
+                    this.authService.authWithCredential(email, pass);
                     this.router.navigate(['/home'])// TODO: navigate authenticated user to the dashboard.
                 },
                 err => {

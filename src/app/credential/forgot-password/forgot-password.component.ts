@@ -36,13 +36,11 @@ export class ForgotPasswordComponent implements OnInit {
         // }
         this.credentiService.sendForgotPasswordEmail(this.formCredential.value.email).subscribe(
             res => {
-                console.log('res: ', res);
                 this.isLoading = false;
                 this.wasSent = true;
             },
             err => {
                 this.isLoading = false;
-                console.log('err: ', err);
                 this.errors = this.errorService.getErrors(err);
             }
         )
