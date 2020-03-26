@@ -6,15 +6,18 @@ import { LoginComponent } from './credential/login/login.component';
 import { ForgotPasswordComponent } from './credential/forgot-password/forgot-password.component';
 import { RegisterComponent } from './credential/register/register.component';
 import { ChangePasswordComponent } from './credential/change-password/change-password.component';
+import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
 
 
 const routes: Routes = [
-    {path:'login', component: LoginComponent},
+    {path:'auth', component: LoginComponent},
     {path:'home', component: HomeComponent},
     {path:'forgotpassword', component: ForgotPasswordComponent},
     {path:'register', component: RegisterComponent},
     {path:'credential/changepassword/:token', component: ChangePasswordComponent},
     {path:'credential/changepassword', component: ChangePasswordComponent},
+    {path:'credential/emailverification/:token', component: EmailVerificationComponent},
+    {path:'credential/emailverification', component: EmailVerificationComponent},
     {path:'', redirectTo:'/home',pathMatch: 'full'},
     {path:'**', component: ErrorPageNotfoundComponent}
 ];

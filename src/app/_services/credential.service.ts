@@ -30,4 +30,21 @@ export class CredentialService {
         }
         return this.apiService.put('credential/forgotpassword',crDto);
     }
+
+    register(email:string, password:string){
+        let crDto: ICredentialDto = {
+            RequestType: RequestTypes.REGISTER,
+            Email: email,
+            Password: password
+        }
+        return this.apiService.post('credential',crDto);
+    }
+
+    verifyEmail(token: string){
+        return this.apiService.post('credential/emailverification',{token});
+    }
+
+    emailVerificationRequest(){
+        return this.apiService.get('credential/emailverification');
+    }
 }

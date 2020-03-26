@@ -37,6 +37,18 @@ export class AuthService {
         this.authenticate(crDto);
     }
 
+
+    public authWithCredentialPlain(email: string, password: string, rememberMe: boolean = false) {
+        const crd: ICredentialDto = {
+            RequestType: RequestTypes.ID_TOKEN,
+            ClientId: this.CLIENT_ID,
+            Email: email,
+            Password: password
+        }
+        this.rememberMe = rememberMe;
+        this.authenticate(crd);
+    }
+
     public authoAuthenticate() {
         // console.log('Auto authenticate... : ', !!this.tokenService.retriveRefreashToken())
         if (!!this.tokenService.retriveRefreashToken()) {
@@ -60,7 +72,7 @@ export class AuthService {
         } else {
             // there is now refreshToken. redirect to login
             // console.log('Redirect to login Page');
-            this.router.navigate(['/login']);
+            this.router.navigate(['/auth']);
             return of(false);
         }
 

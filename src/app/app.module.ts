@@ -20,6 +20,7 @@ import { ErrorsListComponent } from './errors/errors-list/errors-list.component'
 import { ChangePasswordComponent } from './credential/change-password/change-password.component';
 import { TextInputComponent } from './shared/text-input/text-input.component';
 import { MessageBoxComponent } from './shared/message-box/message-box.component';
+import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -33,7 +34,8 @@ import { MessageBoxComponent } from './shared/message-box/message-box.component'
         ErrorsListComponent,
         ChangePasswordComponent,
         TextInputComponent,
-        MessageBoxComponent
+        MessageBoxComponent,
+        EmailVerificationComponent
     ],
     imports: [
         BrowserModule,
