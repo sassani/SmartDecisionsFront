@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
+import { Credential} from '../../_models/credential';
 
 @Component({
     selector: 'user-auth-status',
@@ -8,12 +9,14 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class UserAuthStatusComponent implements OnInit {
     isAuth: boolean = false;
+    private credential: Credential = new Credential();
     constructor(private authService: AuthService) { }
 
     ngOnInit() {
         this.authService.credential$.subscribe(
             (cr) => {
                 this.isAuth = cr.IsAuthenticated;
+                this.credential = cr;
             },
             (err) => {
             })

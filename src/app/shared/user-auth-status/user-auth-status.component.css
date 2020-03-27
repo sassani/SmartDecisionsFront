@@ -1,4 +1,18 @@
-.link{
+.link {
     color: gray;
     text-decoration: none;
+}
+
+.main {
+    align-items: center;
+    /* padding: 5px; */
+}
+
+small {
+    font-size: 0.7rem;
+}
+
+img {
+    height: 35px;
+    padding: 2px;
 }
