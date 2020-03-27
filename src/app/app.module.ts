@@ -21,7 +21,7 @@ import { ChangePasswordComponent } from './credential/change-password/change-pas
 import { TextInputComponent } from './shared/text-input/text-input.component';
 import { MessageBoxComponent } from './shared/message-box/message-box.component';
 import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { WorkspaceModule } from './workspace/workspace.module';
 @NgModule({
     declarations: [
         AppComponent,
@@ -37,15 +37,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         TextInputComponent,
         MessageBoxComponent,
         EmailVerificationComponent,
-        DashboardComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
-        AppRoutingModule,
         BrowserAnimationsModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        WorkspaceModule,
+        AppRoutingModule,
     ],
     providers: [
         ApiService,

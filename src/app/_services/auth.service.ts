@@ -17,7 +17,7 @@ import { environment } from '../../environments/environment';
 
 export class AuthService {
     private readonly CLIENT_ID: string = environment.clientId;
-    private credential = new Credential();
+    public credential = new Credential();
     private _subject = new BehaviorSubject<Credential>(this.credential);
     private rememberMe: boolean = false;
 
@@ -83,7 +83,7 @@ export class AuthService {
 
                     let redirectTo = localStorage.getItem('redirect-to');
                     localStorage.removeItem('redirect-to');
-                    if (!redirectTo) redirectTo = '/dashboard';
+                    if (!redirectTo) redirectTo = '/admin';
                     this.router.navigate([redirectTo]);// TODO: support query params
 
                     this._subject.next(this.credential);
