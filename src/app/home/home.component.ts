@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { ApiService } from '../_services/api.service';
 
 @Component({
     selector: 'app-home',
@@ -8,15 +9,27 @@ import { AuthService } from '../_services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(private authService: AuthService) { }
+    constructor(
+        private authService: AuthService,
+        private apiService: ApiService
+    ) { }
 
     ngOnInit() {
     }
-    test(secure: boolean = false) {
-        if (secure) {
-            this.authService.testSecure();
-        } else {
-            this.authService.testInSecure();
-        }
+    testSecure() {
+        console.log('testSecure running...')
+        this.apiService.get<any>("api/profile").subscribe(
+            res => {
+                console.log('res', res);
+            }
+        )
+    }
+    testInSecure() {
+        console.log('testInSecure running...')
+        this.apiService.get<any>("info").subscribe(
+            res => {
+                console.log('res', res['data']);
+            }
+        )
     }
 }

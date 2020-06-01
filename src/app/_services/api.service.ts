@@ -11,8 +11,8 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    get(url: string) {
-        return this.http.get<any>(`${this.BASE_URL}/${url}`);
+    get<T>(url: string) {
+        return this.http.get<T>(`${this.BASE_URL}/${url}`);
     }
 
     post(url: string, body: object) {

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
     }
 
     logOut() {
+        this.isloading = true;
         this.authService.signOut();
     }
 
@@ -55,12 +56,5 @@ export class LoginComponent implements OnInit {
             this.formCredential.value.email,
             this.formCredential.value.password,
             this.formCredential.value.rememberMe);
-    }
-
-    test() {
-        this.authService.testSecure();
-    }
-
-    test1() {
     }
 }

@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { UserAuthStatusComponent } from './shared/user-auth-status/user-auth-status.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { UserAuthStatusComponent } from './toolbar/user-auth-status/user-auth-status.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorPageNotfoundComponent } from './errors/error-page-notfound/error-page-notfound.component';
 import { LoginComponent } from './credential/login/login.component';
@@ -22,6 +22,7 @@ import { TextInputComponent } from './shared/text-input/text-input.component';
 import { MessageBoxComponent } from './shared/message-box/message-box.component';
 import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
 import { WorkspaceModule } from './workspace/workspace.module';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -37,6 +38,7 @@ import { WorkspaceModule } from './workspace/workspace.module';
         TextInputComponent,
         MessageBoxComponent,
         EmailVerificationComponent,
+        ProfileComponent,
     ],
     imports: [
         BrowserModule,

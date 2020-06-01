@@ -7,7 +7,7 @@ import { AuthGuard } from '../_helpers/guards/auth.guard';
 
 const routes: Routes = [
     {
-      path: 'admin',
+      path: 'myworkspace',
       component: WorkspaceComponent,
       canActivate: [AuthGuard],
       children: [

@@ -2,14 +2,19 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/_services/auth.service';
+import { Credential } from '../../_models/credential';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+    private credential: Credential = new Credential();
     constructor(
         private authService: AuthService,
-        private router: Router) { }
+        private router: Router) {
+        this.authService.credential$.subscribe(cr => this.credential = cr)
+    }
 
     canActivate(
         next: ActivatedRouteSnapshot,
@@ -18,7 +23,7 @@ export class AuthGuard implements CanActivate {
     }
 
     checkLogin(url: string): boolean {
-        if (this.authService.credential.IsAuthenticated) { return true; }
+        if (this.credential.IsAuthenticated) { return true; }
 
         // Store the attempted URL for redirecting
         localStorage.setItem('redirect-to', url)// TODO: add suport for query params

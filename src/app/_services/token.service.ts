@@ -27,8 +27,8 @@ export class TokenService {
         return true;
     }
 
-    public tokenMapper(authToken: IAuthToken): Credential{
-        let cr: Credential = new Credential();
+    public tokenMapper(cr:Credential, authToken: IAuthToken){
+        // let cr: Credential = new Credential();
         cr.PublicId = authToken.uid;
         cr.RefreshToken = authToken.refreshToken;
         cr.AccessToken = authToken.accessToken;
@@ -37,7 +37,7 @@ export class TokenService {
         cr.Email = accesstoken.Email;
         cr.IsEmailVerified = accesstoken.isEmailVerified;
         cr.Roles = accesstoken.roles;// TODO:convert sring to string[]
-        return cr;
+        // return cr;
     }
 
     public clearTokens() {

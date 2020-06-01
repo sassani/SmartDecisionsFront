@@ -1,7 +1,15 @@
-<h3>ADMIN</h3>
+<h3>{{cr.Email}}</h3>
+<div *ngIf="!cr.IsEmailVerified">
+
+    <p class="alert alert-danger" role="alert">
+        Your Email is not Verified.
+        <button class="btn btn-primary" routerLink="/credential/emailverification">Send Me Email Verification Token</button>
+    </p>
+</div>
 <nav>
     <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
     <!--<a routerLink="./crises" routerLinkActive="active">Manage Crises</a>
     <a routerLink="./heroes" routerLinkActive="active">Manage Heroes</a> -->
 </nav>
+<p>{{cr.Email}} : {{cr.IsAuthenticated}}</p>
 <router-outlet></router-outlet>

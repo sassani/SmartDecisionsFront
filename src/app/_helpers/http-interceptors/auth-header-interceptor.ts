@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
-import { throwError, Observable, BehaviorSubject } from 'rxjs';
+import { throwError, Observable, BehaviorSubject, empty, EMPTY } from 'rxjs';
 import { AuthService } from '../../_services/auth.service';
 import { Credential } from '../../_models/credential';
 import { TokenService } from "../../_services/token.service";
@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AuthHeaderInterceptor implements HttpInterceptor {
     private cr: Credential = new Credential();
     private isRefreshing: boolean = false;
-    private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+    private accessTokenSubject$: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
     constructor(
         private authService: AuthService,
@@ -26,7 +26,8 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (this.cr.AccessToken) {
+        // console.log('intercept is running', this.cr)
+        if (!!this.cr.AccessToken) {
             req = this.addAuthorizationHeader(req, this.cr.AccessToken);
         }
         return next.handle(req).pipe(
@@ -50,28 +51,14 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     }
 
     private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-        if (!this.isRefreshing) {
-            this.isRefreshing = true;
-            this.refreshTokenSubject.next(null);
-
-            return this.authService.renewAccessToken().pipe(
-                switchMap((token: any) => {
-                    this.isRefreshing = false;
-                    if (token) {
-                        const accessToken = token['data'].authToken.accessToken;
-                        this.refreshTokenSubject.next(accessToken);
-                        return next.handle(this.addAuthorizationHeader(request, accessToken));
-                    }
-                    return next.handle(this.addAuthorizationHeader(request, 'no access token'));
-                }));
-
-        } else {
-            return this.refreshTokenSubject.pipe(
-                filter(token => token != null),
-                take(1),
-                switchMap(jwt => {
-                    return next.handle(this.addAuthorizationHeader(request, jwt));
-                }));
-        }
+        this.authService.renewAccessToken().subscribe(
+            (res: Credential) => {
+                if (!!res) {
+                    const accessToken = res.AccessToken;
+                    this.accessTokenSubject$.next(accessToken);
+                    return next.handle(this.addAuthorizationHeader(request, accessToken));
+                }
+            });
+        return EMPTY;
     }
 }

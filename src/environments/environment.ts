@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: "https://localhost:44361",
+  serverUrl: "https://api.ardavansassani.com",
   clientId: "cuv12t7"
 };
 

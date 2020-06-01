@@ -14,5 +14,10 @@ small {
 
 img {
     height: 35px;
+    width: 35px;
     padding: 2px;
+}
+
+.menu {
+    left: -10rem;
 }

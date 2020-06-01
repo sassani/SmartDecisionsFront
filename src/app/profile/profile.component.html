@@ -1,0 +1,39 @@
+<div class="container main">
+    <div class="card">
+        <div class="header">
+
+            <h5>Profile</h5>
+            <h6 *ngIf="isloading">Loading Data...</h6>
+            <!-- <i class="material-icons">account_circle</i> -->
+            <img *ngIf="!!profile?.avatar" src="{{profile.avatar.url}}" alt="" class="rounded-circle avatar">
+        </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <form [formGroup]="frmGroup">
+                    <div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+                            <label class="form-control-placeholder" for="firstName">First Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+                            <label class="form-control-placeholder" for="lastName">Last Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="company" formControlName="company" required>
+                            <label class="form-control-placeholder" for="company">Company Name</label>
+                        </div>
+
+
+                        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="isloading">
+                            {{isloading ? "Please wait ..." : "Submit"}}</button>
+
+                    </div>
+                </form>
+                <errors-list [errors]="errors"></errors-list>
+            </div>
+        </div>
+    </div>
+</div>

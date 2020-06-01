@@ -15,9 +15,15 @@ export class EmailVerificationComponent implements OnInit {
     private isVerifiedSuccessfully: boolean = false;
     private token: string = null;
     private errors: IError[] = [];
-    private email: string = null;
+    private message: string = null;
+    private broadCast: BroadcastChannel = new BroadcastChannel('smartDecisionChanel');
+
+    private fGroup = this.fb.group({
+        email: [null, [Validators.required]]
+    })
 
     constructor(
+        private fb: FormBuilder,
         private route: ActivatedRoute,
         private crService: CredentialService,
         private errorService: ErrorService
@@ -32,6 +38,7 @@ export class EmailVerificationComponent implements OnInit {
                 res => {
                     this.isLoading = false;
                     this.isVerifiedSuccessfully = true;
+                    this.broadCast.postMessage({ 'isEmailVerified': true });
                 },
                 err => {
                     this.isLoading = false;
@@ -43,14 +50,15 @@ export class EmailVerificationComponent implements OnInit {
 
     onSubmit() {
         this.isLoading = true;
-        this.crService.emailVerificationRequest().subscribe(
+        this.errors.length = 0;
+        this.crService.emailVerificationRequest(this.fGroup.value.email).subscribe(
             res => {
                 this.isLoading = false;
-                this.email = res['data'];
+                this.message = res['data']["message"];
             },
             err => {
                 this.isLoading = false;
-
+                this.errors = this.errorService.getErrors(err);
             }
         )
 

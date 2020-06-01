@@ -1,8 +1,9 @@
 import { IError } from '../_interfaces/IError';
+import { Profile } from './profile';
 
 export class Credential {
 
-    constructor() {}
+    constructor() { }
     PublicId: string = null;
     Email: string = null;
     IsAuthenticated: boolean = false;
@@ -12,4 +13,5 @@ export class Credential {
     AccessToken: string = null;
     RefreshToken: string = null;
     Roles: string[] = [];
+    Profile: Profile;
 }
