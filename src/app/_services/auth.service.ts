@@ -19,8 +19,9 @@ const BASE_URL = 'identity/auth';
 export class AuthService {
     private readonly CLIENT_ID: string = environment.clientId;
     private credential = new Credential();
-    private lastCredentialId: string = null;
+    // private lastCredentialId: string = null;
     public credential$ = new BehaviorSubject<Credential>(this.credential);
+    public isPending$ = new BehaviorSubject<boolean>(false);
     private rememberMe: boolean = false;
 
 
@@ -32,9 +33,7 @@ export class AuthService {
         private errorService: ErrorService,
         private profileService: ProfileService,
         private router: Router,
-    ) {
-        this.profileService.profile$.subscribe(prf => this.credential.Profile = prf);
-    }
+    ) {}
 
     public authWithCredential(email: string, password: string, rememberMe: boolean = false) {
         const crd: ICredentialDto = {
@@ -44,7 +43,8 @@ export class AuthService {
             Password: password
         }
         this.rememberMe = rememberMe;
-        var s1 = this.authenticate(crd).subscribe(() => { s1.unsubscribe() });
+        return this.authenticate(crd);
+        // var s1 = this.authenticate(crd).subscribe(() => { s1.unsubscribe() });
     }
 
     public authoAuthenticate() {
@@ -73,6 +73,7 @@ export class AuthService {
     }
 
     private authenticate(crDto: ICredentialDto) {
+        this.isPending$.next(true);
         return this.apiService.post(BASE_URL, crDto).pipe(
             tap(
                 auth => {
@@ -83,24 +84,18 @@ export class AuthService {
                     localStorage.removeItem('redirect-to');
                     if (!redirectTo) redirectTo = '/myworkspace';
                     this.router.navigate([redirectTo]);// TODO: support query params
-                    this.getProfile()
+                    this.profileService.fechtProfileApi();
                     this.credential$.next(this.credential);
+                    this.isPending$.next(false);
                 }),
-            mapTo(this.credential),
-            catchError(err => {
+                mapTo(this.credential),
+                catchError(err => {
+                    this.isPending$.next(false);
                 let cr = new Credential();
                 cr.Errors = this.errorService.getErrors(err);
                 this.credential$.next(cr);
                 return of(false);
             }), share());
-    }
-
-    private getProfile() {
-        // console.log('getProfile running...', this.credential)
-        if (this.lastCredentialId != this.credential.PublicId) {
-            this.profileService.fechtProfileApi();
-            this.lastCredentialId = this.credential.PublicId;
-        }
     }
 
     public setEmailVerified() {
@@ -112,7 +107,8 @@ export class AuthService {
         this.apiService.delete(BASE_URL).subscribe(
             () => {
                 this.tokenService.clearTokens();
-                this.credential = new Credential()
+                this.credential = new Credential();
+                // this.profileService.profile$.unsubscribe();
                 this.credential$.next(this.credential);
             },
             err => {

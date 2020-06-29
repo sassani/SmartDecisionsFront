@@ -42,8 +42,9 @@ export class RegisterComponent implements OnInit {
             this.crService.register(email, pass).subscribe(
                 res => {
                     this.isloading = false;
-                    this.authService.authWithCredential(email, pass);
-                    this.router.navigate(['/dashboard'])
+                    this.authService.authWithCredential(email, pass).subscribe();
+                    localStorage.setItem('redirect-to', '/myworkspace');
+                    // this.router.navigate(['/dashboard'])
                 },
                 err => {
                     this.isloading = false;

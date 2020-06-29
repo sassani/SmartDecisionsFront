@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: "https://api.ardavansassani.com",
+  apiUrl: "https://api.ardavansassani.com:1001",
   clientId: "cuv12t7"
 };
 

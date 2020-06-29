@@ -1,0 +1,26 @@
+.avatar-wrapper {
+    position: relative;
+}
+
+.fake-input {
+    opacity: 0;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    margin-left: -80px;
+}
+
+.file-input {
+    box-shadow: 1px 1px 15px -5px black;
+    transition: all .3s ease;
+    height: 80px;
+    width: 80px;
+    margin: auto;
+    border-radius: 50px;
+    // background-color: #34495e;
+    opacity: 1;
+    &:hover {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}

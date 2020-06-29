@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
     private cr: Credential;
     private isloading = false;
+    private isPending = false;
     private formCredential = this.fb.group({
         email: [null, Validators.required],
         password: [null, Validators.required],
@@ -36,6 +37,12 @@ export class LoginComponent implements OnInit {
                 this.cr = cr;
             }
         )
+        this.authService.isPending$.subscribe(
+            r => {
+                // console.log('r', r)
+                this.isPending = r;
+            }
+        )
     }
 
     logOut() {
@@ -45,16 +52,13 @@ export class LoginComponent implements OnInit {
 
 
     logIn() {
+        const frm = this.formCredential.value;
         this.isloading = true;
         this.cr.Errors.length = 0;
-        // const crd: ICredentialDto = {
-        //     Email: this.formCredential.value.email,
-        //     Password: this.formCredential.value.password
-        // }
-        // this.authService.authWithCredential(crd, this.formCredential.value.rememberMe);
+
         this.authService.authWithCredential(
-            this.formCredential.value.email,
-            this.formCredential.value.password,
-            this.formCredential.value.rememberMe);
+            frm.email,
+            frm.password,
+            frm.rememberMe).subscribe();
     }
 }

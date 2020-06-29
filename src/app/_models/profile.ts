@@ -6,6 +6,6 @@ export class Profile {
     firstName: string = null;
     lastName: string = null;
     company: string = null;
-    address: [Address] = null;
+    address: Address[] = null;
     avatar:Image = null;
 }

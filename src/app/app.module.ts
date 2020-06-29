@@ -23,6 +23,7 @@ import { MessageBoxComponent } from './shared/message-box/message-box.component'
 import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
 import { WorkspaceModule } from './workspace/workspace.module';
 import { ProfileComponent } from './profile/profile.component';
+import { AddressComponent } from './profile/address/address.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -39,6 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
         MessageBoxComponent,
         EmailVerificationComponent,
         ProfileComponent,
+        AddressComponent,
     ],
     imports: [
         BrowserModule,

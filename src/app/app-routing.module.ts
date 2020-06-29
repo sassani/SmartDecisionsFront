@@ -8,6 +8,7 @@ import { RegisterComponent } from './credential/register/register.component';
 import { ChangePasswordComponent } from './credential/change-password/change-password.component';
 import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './_helpers/guards/auth.guard';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
     {path:'home', component: HomeComponent},
     {path:'forgotpassword', component: ForgotPasswordComponent},
     {path:'register', component: RegisterComponent},
-    {path:'credential/profile', component: ProfileComponent},
+    {path:'credential/profile', component: ProfileComponent, canActivate:[AuthGuard]},
     {path:'credential/changepassword/:token', component: ChangePasswordComponent},
     {path:'credential/changepassword', component: ChangePasswordComponent},
     {path:'credential/emailverification/:token', component: EmailVerificationComponent},

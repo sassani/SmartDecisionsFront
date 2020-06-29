@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class ApiService {
 
-    readonly BASE_URL: string = environment.serverUrl;
+    readonly BASE_URL: string = environment.apiUrl;
 
     constructor(private http: HttpClient) { }
 
@@ -21,6 +21,10 @@ export class ApiService {
 
     put(url: string, body: object) {
         return this.http.put<any>(`${this.BASE_URL}/${url}`, body);
+    }
+
+    patch(url: string, body: object) {
+        return this.http.patch<any>(`${this.BASE_URL}/${url}`, body);
     }
 
     delete(url: string) {

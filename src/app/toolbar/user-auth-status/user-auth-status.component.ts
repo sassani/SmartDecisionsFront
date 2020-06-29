@@ -17,6 +17,7 @@ export class UserAuthStatusComponent implements OnInit {
     private broadCast: BroadcastChannel = new BroadcastChannel('smartDecisionChanel');
     private requestProfile: boolean = false;
     private lastCredentialId: string = null;
+    private profile: Profile = null;
 
 
     constructor(
@@ -37,6 +38,15 @@ export class UserAuthStatusComponent implements OnInit {
         //         this.lastCredentialId = cr.PublicId;
         //     }
         // });
+
+        this.prfService.profile$.subscribe(val => {
+            // console.log('profile subscribes from toolbar')
+            this.profile = new Profile();
+            // this.isloading = false;
+            this.profile = Object.assign(this.profile, val);
+            // this.initiateForm()
+        });
+
         if (!this.credential.IsAuthenticated) this.authService.authoAuthenticate();
         this.broadCast.onmessage = ev => {
             this.authService.setEmailVerified()
@@ -51,7 +61,7 @@ export class UserAuthStatusComponent implements OnInit {
             if (this.credential.IsAuthenticated) {
                 this.crdService.baseInfo().subscribe(
                     res => {
-                        console.log('data', res['data']);
+                        // console.log('data', res['data']);
                     }
                 );
             } else {
