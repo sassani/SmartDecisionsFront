@@ -8,7 +8,7 @@ import { Credential } from '../../_models/credential';
     styleUrls: ['./workspace.component.css']
 })
 export class WorkspaceComponent implements OnInit {
-    private cr: Credential = new Credential
+    cr: Credential = new Credential
     constructor(private authService: AuthService) { }
 
     ngOnInit() {

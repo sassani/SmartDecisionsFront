@@ -84,7 +84,7 @@ export class AuthService {
                     localStorage.removeItem('redirect-to');
                     if (!redirectTo) redirectTo = '/myworkspace';
                     this.router.navigate([redirectTo]);// TODO: support query params
-                    this.profileService.fechtProfileApi();
+                    this.profileService.getProfile();//TODO: check for first time
                     this.credential$.next(this.credential);
                     this.isPending$.next(false);
                 }),

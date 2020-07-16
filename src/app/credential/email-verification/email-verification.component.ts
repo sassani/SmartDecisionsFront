@@ -11,14 +11,14 @@ import { ErrorService } from 'src/app/_services/error.service';
     styleUrls: ['../../../styles/form.css']
 })
 export class EmailVerificationComponent implements OnInit {
-    private isLoading: boolean = false;
-    private isVerifiedSuccessfully: boolean = false;
-    private token: string = null;
-    private errors: IError[] = [];
-    private message: string = null;
-    private broadCast: BroadcastChannel = new BroadcastChannel('smartDecisionChanel');
+    isLoading: boolean = false;
+    isVerifiedSuccessfully: boolean = false;
+    token: string = null;
+    errors: IError[] = [];
+    message: string = null;
+    broadCast: BroadcastChannel = new BroadcastChannel('smartDecisionChanel');
 
-    private fGroup = this.fb.group({
+    fGroup = this.fb.group({
         email: [null, [Validators.required]]
     })
 

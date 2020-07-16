@@ -1,0 +1,449 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200715.161315.13072.0.001.json",
+    "dumpEventTime": "2020-07-15T16:13:15Z",
+    "dumpEventTimeStamp": "1594843995445",
+    "processId": 13072,
+    "cwd": "D:\\MyCompany\\MyProjects\\SmartDecisions\\WebApp",
+    "commandLine": [
+      "node",
+      "C:\\Users\\Ardook\\AppData\\Roaming\\npm\\\\node_modules\\@angular\\cli\\bin\\ng",
+      "serve"
+    ],
+    "nodejsVersion": "v12.14.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.14.1",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.14.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18362",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 768625,
+        "nice": 0,
+        "sys": 1125625,
+        "idle": 11648000,
+        "irq": 180843
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 614562,
+        "nice": 0,
+        "sys": 321765,
+        "idle": 12605578,
+        "irq": 12031
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 1636812,
+        "nice": 0,
+        "sys": 685828,
+        "idle": 11219265,
+        "irq": 13656
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 564500,
+        "nice": 0,
+        "sys": 321515,
+        "idle": 12655890,
+        "irq": 6328
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 986500,
+        "nice": 0,
+        "sys": 508031,
+        "idle": 12047375,
+        "irq": 14515
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 594921,
+        "nice": 0,
+        "sys": 312640,
+        "idle": 12634343,
+        "irq": 6765
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 980078,
+        "nice": 0,
+        "sys": 567156,
+        "idle": 11994671,
+        "irq": 12140
+      },
+      {
+        "model": "Intel(R) Core(TM) i7 CPU       Q 740  @ 1.73GHz",
+        "speed": 1729,
+        "user": 714515,
+        "nice": 0,
+        "sys": 458953,
+        "idle": 12368437,
+        "irq": 8250
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "vEthernet (Default Switch)",
+        "internal": false,
+        "mac": "00:15:5d:39:db:6c",
+        "address": "fe80::3944:be40:c2d2:2b39",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 8
+      },
+      {
+        "name": "vEthernet (Default Switch)",
+        "internal": false,
+        "mac": "00:15:5d:39:db:6c",
+        "address": "172.17.230.177",
+        "netmask": "255.255.255.240",
+        "family": "IPv4"
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "4c:0f:6e:f5:3a:91",
+        "address": "fe80::598b:586b:8efe:ef22",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 7
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "4c:0f:6e:f5:3a:91",
+        "address": "192.168.0.102",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "ArdookNote"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6416d1759",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff6416d5b7c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff6416d4b38",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff6417c433b",
+      "symbol": "v8::base::CPU::has_sse+37723"
+    },
+    {
+      "pc": "0x00007ff641fc8c5e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff641fb0ca1",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff641e7e56c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff641e89910",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff641e86444",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff641e7bcd3",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff641e7a4a4",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2356"
+    },
+    {
+      "pc": "0x00007ff641e9b775",
+      "symbol": "v8::internal::Factory::NewFillerObject+53"
+    },
+    {
+      "pc": "0x00007ff641c07a49",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
+    },
+    {
+      "pc": "0x00007ff6423f463d",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
+    },
+    {
+      "pc": "0x00007ff6423756c1",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+47889"
+    },
+    {
+      "pc": "0x0000025df65e7f41",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2154184704,
+    "totalCommittedMemory": 2154184704,
+    "usedMemory": 2114071648,
+    "availableMemory": 47888104,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 4194304,
+        "committedMemory": 4194304,
+        "capacity": 2094976,
+        "used": 212008,
+        "available": 1882968
+      },
+      "old_space": {
+        "memorySize": 1935257600,
+        "committedMemory": 1935257600,
+        "capacity": 1905611584,
+        "used": 1905561592,
+        "available": 49992
+      },
+      "code_space": {
+        "memorySize": 7766016,
+        "committedMemory": 7766016,
+        "capacity": 6614528,
+        "used": 6614528,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 7868416,
+        "committedMemory": 7868416,
+        "capacity": 3616320,
+        "used": 3616320,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 197869568,
+        "committedMemory": 197869568,
+        "capacity": 197155160,
+        "used": 197155160,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 966656,
+        "committedMemory": 966656,
+        "capacity": 879744,
+        "used": 879744,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 2094976,
+        "used": 0,
+        "available": 2094976
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 813.515,
+    "kernelCpuSeconds": 19.312,
+    "cpuConsumptionPercent": 6.41327,
+    "maxRss": 2228563968,
+    "pageFaults": {
+      "IORequired": 2157267,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 7376,
+      "writes": 16
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=C:": "C:\\",
+    "=D:": "D:\\MyCompany\\MyProjects\\SmartDecisions\\WebApp",
+    "ADSK_CLM_WPAD_PROXY_CHECK": "FALSE",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\Ardook\\AppData\\Roaming",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "ARDOOKNOTE",
+    "ComSpec": "C:\\WINDOWS\\system32\\cmd.exe",
+    "DBug": "No",
+    "dp0": "C:\\Users\\Ardook\\AppData\\Roaming\\npm\\",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "DrvType": "SSD",
+    "HiLiteCol": "Default",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Ardook",
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk1.8.0_211",
+    "LOCALAPPDATA": "C:\\Users\\Ardook\\AppData\\Local",
+    "LOGONSERVER": "\\\\ARDOOKNOTE",
+    "NoMD": "0",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OEMsOK": "Yes",
+    "OneDrive": "C:\\Users\\Ardook\\OneDrive",
+    "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
+    "OS": "Windows_NT",
+    "OSEd": "Professional",
+    "Path": "C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\PuTTY\\;C:\\sqlite3;C:\\Program Files\\Java\\jdk1.8.0_211\\bin;C:\\Program Files\\Java\\apache-maven-3.6.1\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files\\PostgreSQL\\11\\bin;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\dotnet\\;C:\\Users\\Ardook\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Ardook\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Ardook\\AppData\\Local\\Programs\\Python\\Python37;C:\\Users\\Ardook\\AppData\\Local\\Programs\\Python\\Python37\\Scripts;C:\\Users\\Ardook\\.dotnet\\tools;C:\\Users\\Ardook\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Ardook\\AppData\\Roaming\\Python\\Python37\\Scripts;C:\\Users\\Ardook\\AppData\\Roaming\\npm;C:\\Program Files\\liquibase",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "PIPENV_VENV_IN_PROJECT": "true",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 30 Stepping 5, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "1e05",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\PowerShell\\Modules\\",
+    "PUBLIC": "C:\\Users\\Public",
+    "Rem1Drv": "No",
+    "RPBand": "No",
+    "SESSIONNAME": "Console",
+    "ShowExts": "No",
+    "SystemDrive": "C:",
+    "SystemModel": "VPCF13UFX",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\Ardook\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\Ardook\\AppData\\Local\\Temp",
+    "USERDOMAIN": "ARDOOKNOTE",
+    "USERDOMAIN_ROAMINGPROFILE": "ARDOOKNOTE",
+    "USERNAME": "Ardook",
+    "USERPROFILE": "C:\\Users\\Ardook",
+    "W10TB": "No",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\WINDOWS",
+    "TERM_PROGRAM": "vscode",
+    "TERM_PROGRAM_VERSION": "1.47.1",
+    "LANG": "en_US.UTF-8",
+    "COLORTERM": "truecolor",
+    "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-b36f19ddd9-sock",
+    "GIT_ASKPASS": "c:\\Users\\Ardook\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",
+    "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\Ardook\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+    "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\Ardook\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\MSASN1.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\System32\\profapi.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\SYSTEM32\\winmmbase.dll",
+    "C:\\WINDOWS\\System32\\cfgmgr32.dll",
+    "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\System32\\powrprof.dll",
+    "C:\\WINDOWS\\System32\\UMPDC.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\System32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\WINDOWS\\System32\\fwpuclnt.dll"
+  ]
+}

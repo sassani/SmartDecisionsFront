@@ -1,90 +1,51 @@
 <div class="container main">
     <div class="card">
         <div class="header">
-
             <h5>Profile</h5>
-            <h6 *ngIf="isloading">Loading Data...</h6>
+            <h6 *ngIf="isloading">Loading Profile...</h6>
             <!-- <i class="material-icons">account_circle</i> -->
             <div class="avatar-wrapper">
-
                 <div class="file-input">
                     <img src="{{imageUrl}}" alt="" class="rounded-circle avatar">
-
                     <input class="fake-input" type="file" accept="image/*" id="getimage" (change)="onFileChanged($event)" />
                 </div>
-                <button class="btn btn-link" *ngIf="hasImage" (click)="onRemoveAvatar()">remove</button>
+                <button class="btn btn-link link" *ngIf="hasAvatar" (click)="onRemoveAvatar()">remove</button>
             </div>
-            <button (click)="onTest()">test</button>
         </div>
 
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <form [formGroup]="frmGroup">
-                    <div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
-                            <label class="form-control-placeholder" for="firstName">First Name<span class="text-danger">*</span> </label>
-                        </div>
+                <form [formGroup]="fgProfile">
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
-                            <label class="form-control-placeholder" for="lastName">Last Name<span class="text-danger">*</span> </label>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="company" formControlName="company" required>
-                            <label class="form-control-placeholder" for="company">Company Name</label>
-                        </div>
-
-                        <div *ngIf="test" class="address">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="address1" formControlName="address1" required>
-                                <label class="form-control-placeholder" for="address1">Address 1<span class="text-danger">*</span> </label>
-                            </div>
-
-                            <div class="address">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="address2" formControlName="address2" required>
-                                    <label class="form-control-placeholder" for="address2">Address 2<span class="text-danger">*</span> </label>
-                                </div>
-                            </div>
-                            <div class="address">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="city" formControlName="city" required>
-                                    <label class="form-control-placeholder" for="city">City<span class="text-danger">*</span> </label>
-                                </div>
-                            </div>
-                            <div class="address">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="state" formControlName="state" required>
-                                    <label class="form-control-placeholder" for="state">State<span class="text-danger">*</span> </label>
-                                </div>
-                            </div>
-                            <div class="address">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="country" formControlName="country" required>
-                                    <label class="form-control-placeholder" for="country">Country<span class="text-danger">*</span> </label>
-                                </div>
-                            </div>
-                            <div class="address">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="zipcode" formControlName="zipcode" required>
-                                    <label class="form-control-placeholder" for="zipcode">Zipcode<span class="text-danger">*</span> </label>
-                                </div>
-                            </div>
-                            <div class="address">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="phonenumber" formControlName="phonenumber" required>
-                                    <label class="form-control-placeholder" for="phonenumber">Phone number<span class="text-danger">*</span> </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button *ngIf="isUnsaved" class="btn btn-primary" (click)="onSubmit()" [disabled]="isSubmiting">
-                            {{isloading ? "Please wait ..." : "Save"}}</button>
-
-                    </div>
+                    <text-field [id]="'firstName'" [formControl]="firstName" [placeholder]="'First Name'"></text-field>
+                    <text-field [id]="'lastName'" [formControl]="lastName" [placeholder]="'Last Name'"></text-field>
+                    <text-field [id]="'company'" [formControl]="company" [placeholder]="'Company'"></text-field>
                 </form>
+
+                <div id="contact">
+                    <button class="btn btn-link contact-label" type="button" data-toggle="collapse" data-target="#collapseItem" aria-expanded="true">
+                        Contact
+                    </button>
+                </div>
+
+
+                <div id="collapseItem" [ngClass]="(profile.contacts.length>0)? 'collapse show':'collapse'" data-parent="#contact">
+                    <form [formGroup]="fgContact">
+
+                        <text-field [id]="'address1'" [formControl]="address1" [placeholder]="'Address 1'"></text-field>
+                        <text-field [id]="'address2'" [formControl]="address2" [placeholder]="'Address 2'"></text-field>
+                        <text-field [id]="'city'" [formControl]="city" [placeholder]="'City'"></text-field>
+                        <text-field [id]="'state'" [formControl]="state" [placeholder]="'State'"></text-field>
+                        <text-field [id]="'country'" [formControl]="country" [placeholder]="'Country'"></text-field>
+                        <text-field [id]="'zipcode'" [formControl]="zipcode" [placeholder]="'Zipcode'"></text-field>
+                        <text-field [id]="'phonenumber'" [formControl]="phonenumber" [placeholder]="'Phone Number'"></text-field>
+
+                    </form>
+                </div>
+
+
+                <button *ngIf="isDirty()" class="btn btn-primary" (click)="onSubmit()" [disabled]="isSavePending()">
+                            {{isloading ? "Please wait ..." : "Save"}}</button>
                 <errors-list [errors]="errors"></errors-list>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { Address } from "./address";
+import { Contact } from "./contact";
 import { Image } from './image';
 export class Profile {
 
@@ -6,6 +6,6 @@ export class Profile {
     firstName: string = null;
     lastName: string = null;
     company: string = null;
-    address: Address[] = null;
+    contacts: Contact[] = [];
     avatar:Image = null;
 }

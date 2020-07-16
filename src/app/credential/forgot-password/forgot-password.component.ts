@@ -11,10 +11,10 @@ import { IError } from 'src/app/_interfaces/IError';
     styleUrls: ['../../../styles/form.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-    private isLoading: boolean = false;
-    private wasSent: boolean = false;
-    private errors: IError[] = [];
-    private formCredential = this.fb.group({
+    isLoading: boolean = false;
+    wasSent: boolean = false;
+    errors: IError[] = [];
+    formCredential = this.fb.group({
         email: [null, Validators.required],
     })
     constructor(

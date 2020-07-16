@@ -18,12 +18,12 @@ import { ForgotPasswordComponent } from './credential/forgot-password/forgot-pas
 import { RegisterComponent } from './credential/register/register.component';
 import { ErrorsListComponent } from './errors/errors-list/errors-list.component';
 import { ChangePasswordComponent } from './credential/change-password/change-password.component';
-import { TextInputComponent } from './shared/text-input/text-input.component';
+import { TextFieldComponent } from './shared/text-field/text-field.component';
 import { MessageBoxComponent } from './shared/message-box/message-box.component';
 import { EmailVerificationComponent } from './credential/email-verification/email-verification.component';
 import { WorkspaceModule } from './workspace/workspace.module';
 import { ProfileComponent } from './profile/profile.component';
-import { AddressComponent } from './profile/address/address.component';
+import { LabelErrorComponent } from './shared/label-error/label-error.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -36,11 +36,11 @@ import { AddressComponent } from './profile/address/address.component';
         RegisterComponent,
         ErrorsListComponent,
         ChangePasswordComponent,
-        TextInputComponent,
+        TextFieldComponent,
         MessageBoxComponent,
         EmailVerificationComponent,
         ProfileComponent,
-        AddressComponent,
+        LabelErrorComponent,
     ],
     imports: [
         BrowserModule,

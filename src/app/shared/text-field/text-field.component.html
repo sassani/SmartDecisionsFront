@@ -1,0 +1,14 @@
+<div class="form-group">
+
+    <input [id]=id [type]=type class="form-control" [formControl]="ngControl.control" [class.is-invalid]="ngControl.invalid && (ngControl.dirty || ngControl.touched)" placeholder=" ">
+    <label [for]=id class="form-control-placeholder">{{placeholder}}<span *ngIf="isRequierd" class="text-danger">*</span> </label>
+
+    <div *ngIf="ngControl.invalid && (ngControl.dirty || ngControl.touched) " class="invalid-feedback">
+        <div *ngIf="ngControl.errors.required">
+            {{placeholder}} is required.
+        </div>
+        <div *ngIf="ngControl.errors.minlength">
+            {{placeholder}} must be at least {{ngControl.errors['minlength'].requiredLength}} characters long.
+        </div>
+    </div>
+</div>

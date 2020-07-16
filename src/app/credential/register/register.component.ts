@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
     styleUrls: ['../../../styles/form.css']
 })
 export class RegisterComponent implements OnInit {
-    private isloading: boolean = false;
-    private errors: IError[] = [];
-    private frmGroup = this.fb.group({
+    isloading: boolean = false;
+    errors: IError[] = [];
+    frmGroup = this.fb.group({
         email: [null, Validators.required],
         password: [null, Validators.required],
         passwordConfirm: [null, Validators.required]

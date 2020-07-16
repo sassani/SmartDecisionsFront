@@ -13,11 +13,11 @@ import { map } from 'rxjs/operators';
 })
 export class UserAuthStatusComponent implements OnInit {
     // private autoGrabber;
-    private credential: Credential = new Credential();
-    private broadCast: BroadcastChannel = new BroadcastChannel('smartDecisionChanel');
-    private requestProfile: boolean = false;
-    private lastCredentialId: string = null;
-    private profile: Profile = null;
+    credential: Credential = new Credential();
+    broadCast: BroadcastChannel = new BroadcastChannel('smartDecisionChanel');
+    requestProfile: boolean = false;
+    lastCredentialId: string = null;
+    profile: Profile = null;
 
 
     constructor(

@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
     styleUrls: ['../../../styles/form.css']
 })
 export class LoginComponent implements OnInit {
-    private cr: Credential;
-    private isloading = false;
-    private isPending = false;
-    private formCredential = this.fb.group({
+    cr: Credential;
+    isloading = false;
+    isPending = false;
+    formCredential = this.fb.group({
         email: [null, Validators.required],
         password: [null, Validators.required],
         rememberMe: [false]

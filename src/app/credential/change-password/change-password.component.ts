@@ -13,10 +13,10 @@ import { ErrorService } from 'src/app/_services/error.service';
     styleUrls: ['../../../styles/form.css']
 })
 export class ChangePasswordComponent implements OnInit {
-    private isLoading: boolean = false;
-    private changedSuccessfully: boolean = false;
-    private errors: IError[] = [];
-    private token: string = null;
+    isLoading: boolean = false;
+    changedSuccessfully: boolean = false;
+    errors: IError[] = [];
+    token: string = null;
 
     // fGroup = new FormGroup({
     //     newPassword: new FormControl(),
@@ -25,7 +25,7 @@ export class ChangePasswordComponent implements OnInit {
 
 
 
-    private fGroup = this.fb.group({
+    fGroup = this.fb.group({
         oldPassword: [null, [Validators.required]],
         newPassword: [null, [Validators.required, Validators.minLength(8)]],
         newPasswordConfirm: [null, Validators.required]

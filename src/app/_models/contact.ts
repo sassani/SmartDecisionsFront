@@ -1,4 +1,4 @@
-export class Address {
+export class Contact {
     id: number = null;
     address1: string = null;
     address2: string = null;

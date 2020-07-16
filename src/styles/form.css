@@ -38,9 +38,18 @@
     opacity: 0.5;
 }
 
-.form-control:focus+.form-control-placeholder,
-.form-control:valid+.form-control-placeholder {
+.form-control:not(:placeholder-shown)~.form-control-placeholder,
+.form-control:focus~.form-control-placeholder
+/* ss */
+
+{
     font-size: 75%;
     transform: translate3d(0, -100%, 0);
     opacity: 1;
+}
+
+.form-invalid {
+    color: red;
+    font-size: 0.75rem;
+    padding-left: 0.5rem;
 }
