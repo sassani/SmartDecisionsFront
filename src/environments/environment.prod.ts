@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
-  serverUrl: "https://api.ardavansassani.com",
-  clientId: "cuv12t7"
-};
+    production: false,
+    apiUrl: "https://api.ardavansassani.com:1001",
+    clientId: "cuv12t7"
+  };
